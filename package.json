@@ -1,0 +1,25 @@
+{
+  "name": "jpyx-gas",
+  "scripts": {
+    "build": "tsc && esbuild lib.ts --outfile=lib.js --bundle --loader:.ts=ts --global-name=lib",
+    "clasp": "clasp",
+    "predeploy": "npm run build",
+    "deploy": "clasp push"
+  },
+  "homepage": "https://github.com/abicky/jpyx-gas",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abicky/jpyx-gas.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12"
+  },
+  "devDependencies": {
+    "@google/clasp": "^2.4.2",
+    "@types/google-apps-script": "^1.0.83",
+    "@types/node": "^20.12.7",
+    "esbuild": "^0.20.2",
+    "typescript": "^5.4.5"
+  }
+}
