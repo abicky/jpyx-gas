@@ -2,6 +2,8 @@
 
 This project provides the functions `JPYX` and `JPYXLASTMONTH` to show USD/JPY (JPY=X) on your Google Sheets.
 
+![Screenshot](screenshot.png)
+
 # Installation
 
 [clasp](https://github.com/google/clasp) allows you to install the functions easily as follows:
