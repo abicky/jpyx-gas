@@ -3,6 +3,7 @@
   "scripts": {
     "build": "tsc && esbuild lib.ts --outfile=lib.js --bundle --loader:.ts=ts --global-name=lib",
     "clasp": "clasp",
+    "fmt": "prettier --write .",
     "predeploy": "npm run build",
     "deploy": "clasp push"
   },
@@ -20,6 +21,7 @@
     "@types/google-apps-script": "^1.0.83",
     "@types/node": "^20.12.7",
     "esbuild": "^0.20.2",
+    "prettier": "^3.2.5",
     "typescript": "^5.4.5"
   }
 }

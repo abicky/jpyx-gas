@@ -1,4 +1,4 @@
-import {AnyNode, Cheerio, CheerioAPI, load} from 'cheerio';
+import { AnyNode, Cheerio, CheerioAPI, load } from 'cheerio';
 
 function findCell($: CheerioAPI, tag: string, name: string): Cheerio<AnyNode> {
   const elem = $(`${tag}:contains("${name}")`);
@@ -29,7 +29,7 @@ function _jpyx(url: string, prefix: string = '') {
   ];
 }
 
-export function JPYX(date: Date|string) {
+export function JPYX(date: Date | string) {
   let year: string, month: string, day: string;
   if (typeof date === 'object') {
     year = date.getFullYear().toString();
@@ -38,7 +38,7 @@ export function JPYX(date: Date|string) {
   } else {
     [year, month, day] = date.split('-');
   }
-  const dateString = `${(+year - 2000)}${month.padStart(2, '0')}${day.padStart(2, '0')}`;
+  const dateString = `${+year - 2000}${month.padStart(2, '0')}${day.padStart(2, '0')}`;
   const url = `https://www.murc-kawasesouba.jp/fx/past/index.php?id=${dateString}`;
   return _jpyx(url);
 }
