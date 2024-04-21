@@ -14,7 +14,7 @@ function findCell($: CheerioAPI, tag: string, name: string): Cheerio<AnyNode> {
 
 function _jpyx(url: string, prefix: string = '') {
   const res = UrlFetchApp.fetch(url);
-  const $ = load(res.getContentText());
+  const $ = load(res.getContentText('Shift_JIS'));
 
   const ttsCol = findCell($, 'th', `${prefix}TTS`).prevAll().length + 1;
   const ttbCol = findCell($, 'th', `${prefix}TTB`).prevAll().length + 1;
@@ -24,7 +24,7 @@ function _jpyx(url: string, prefix: string = '') {
   const ttb = +usdRow.find(`td:nth-child(${ttbCol})`).text();
 
   return [
-    ['TTS', 'TTB', 'TTM', 'Data Source'],
+    [`${prefix}TTS`, `${prefix}TTB`, `${prefix}TTM`, 'Data Source'],
     [tts, ttb, (tts + ttb) / 2, url],
   ];
 }
